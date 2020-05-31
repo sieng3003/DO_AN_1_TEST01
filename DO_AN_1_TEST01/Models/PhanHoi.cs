@@ -7,13 +7,13 @@ using System.ComponentModel.DataAnnotations;
 
 namespace DO_AN_1_TEST01.Models
 {
-    public class NhaCungCap
+    public class PhanHoi
     {
         [Key]
-        public int NhaCungCapId { get; set; }
-        public string TenNhanCungCap { get; set; }
-        public string Diachi { get; set; }
-        public string Sdt { get; set; }
-        
+        public int PhanHoiId { get; set; }
+        public string NoiDung { get; set; }
+        [ForeignKey("Users_model")]
+        public int UsersId { get; set; }
+        public Users_model Users_Model { get; set; }
     }
 }

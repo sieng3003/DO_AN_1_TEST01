@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 
@@ -7,6 +9,7 @@ namespace DO_AN_1_TEST01.Models
 {
     public class Users_model
     {
+        [Key]
         public int UsersId { get; set; }
         public string UserName { get; set; }
         public string PassWord { get; set; }
