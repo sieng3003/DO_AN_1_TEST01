@@ -124,10 +124,13 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\ChiTietGioHang.cs" />
     <Compile Include="Models\DonHang.cs" />
+    <Compile Include="Models\GioHang.cs" />
     <Compile Include="Models\KhachHang.cs" />
     <Compile Include="Models\LoaiSanPham.cs" />
     <Compile Include="Models\NhaCungCap.cs" />
+    <Compile Include="Models\SanPham.cs" />
     <Compile Include="Models\Users_model.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
