@@ -1,0 +1,52 @@
+﻿@model IEnumerable<DO_AN_1_TEST01.Models.ChiTietGioHang>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.GioHang.GioHangId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SanPham.TenSanPham)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PhiGiaoDich)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ThanhTien)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.GioHang.GioHangId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SanPham.TenSanPham)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PhiGiaoDich)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ThanhTien)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.CTGioHangId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.CTGioHangId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.CTGioHangId })
+        </td>
+    </tr>
+}
+
+</table>

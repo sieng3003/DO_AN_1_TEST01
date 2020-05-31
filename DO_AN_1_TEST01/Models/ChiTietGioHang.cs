@@ -17,9 +17,9 @@ namespace DO_AN_1_TEST01.Models
         [ForeignKey("GioHang")]
         public int? GioHangId { get; set; }
         public GioHang GioHang { get; set; }
-        [ForeignKey("Users_model")]
-        public int? UsersId { get; set; }
-        public Users_model Users_Model { get; set; }
+        //[ForeignKey("Users_model")]
+        //public int? UsersId { get; set; }
+        //public Users_model Users_Model { get; set; }
         [ForeignKey("SanPham")]
         public int? SanPhamId { get; set; }
         public SanPham SanPham { get; set; }
