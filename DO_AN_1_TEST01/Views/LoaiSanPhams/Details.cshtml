@@ -1,0 +1,35 @@
+﻿@model DO_AN_1_TEST01.Models.LoaiSanPham
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>LoaiSanPham</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.TenLoai)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TenLoai)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SoLuong)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SoLuong)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.LoaiId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\EntityFramework.6.4.0\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.4.0\build\EntityFramework.props')" />
   <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
@@ -45,6 +46,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -120,10 +127,34 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\ChiTietGioHangsController.cs" />
+    <Compile Include="Controllers\DonHangsController.cs" />
+    <Compile Include="Controllers\GioHangsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\KhachHangsController.cs" />
+    <Compile Include="Controllers\LoaiSanPhamsController.cs" />
+    <Compile Include="Controllers\NhaCungCapsController.cs" />
+    <Compile Include="Controllers\PhanHoisController.cs" />
+    <Compile Include="Controllers\SanPhamsController.cs" />
+    <Compile Include="Controllers\Users_modelController.cs" />
+    <Compile Include="DATAContext\DATAConText.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202005310630130_addSanPhamAddress.cs" />
+    <Compile Include="Migrations\202005310630130_addSanPhamAddress.designer.cs">
+      <DependentUpon>202005310630130_addSanPhamAddress.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\ChiTietGioHang.cs" />
+    <Compile Include="Models\DonHang.cs" />
+    <Compile Include="Models\GioHang.cs" />
+    <Compile Include="Models\KhachHang.cs" />
+    <Compile Include="Models\LoaiSanPham.cs" />
+    <Compile Include="Models\NhaCungCap.cs" />
+    <Compile Include="Models\PhanHoi.cs" />
+    <Compile Include="Models\SanPham.cs" />
+    <Compile Include="Models\Users_model.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -162,10 +193,54 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Users_model\Create.cshtml" />
+    <Content Include="Views\Users_model\Delete.cshtml" />
+    <Content Include="Views\Users_model\Details.cshtml" />
+    <Content Include="Views\Users_model\Edit.cshtml" />
+    <Content Include="Views\Users_model\Index.cshtml" />
+    <Content Include="Views\SanPhams\Create.cshtml" />
+    <Content Include="Views\SanPhams\Delete.cshtml" />
+    <Content Include="Views\SanPhams\Details.cshtml" />
+    <Content Include="Views\SanPhams\Edit.cshtml" />
+    <Content Include="Views\SanPhams\Index.cshtml" />
+    <Content Include="Views\PhanHois\Create.cshtml" />
+    <Content Include="Views\PhanHois\Delete.cshtml" />
+    <Content Include="Views\PhanHois\Details.cshtml" />
+    <Content Include="Views\PhanHois\Edit.cshtml" />
+    <Content Include="Views\PhanHois\Index.cshtml" />
+    <Content Include="Views\NhaCungCaps\Create.cshtml" />
+    <Content Include="Views\NhaCungCaps\Delete.cshtml" />
+    <Content Include="Views\NhaCungCaps\Details.cshtml" />
+    <Content Include="Views\NhaCungCaps\Edit.cshtml" />
+    <Content Include="Views\NhaCungCaps\Index.cshtml" />
+    <Content Include="Views\LoaiSanPhams\Create.cshtml" />
+    <Content Include="Views\LoaiSanPhams\Delete.cshtml" />
+    <Content Include="Views\LoaiSanPhams\Details.cshtml" />
+    <Content Include="Views\LoaiSanPhams\Edit.cshtml" />
+    <Content Include="Views\LoaiSanPhams\Index.cshtml" />
+    <Content Include="Views\KhachHangs\Create.cshtml" />
+    <Content Include="Views\KhachHangs\Delete.cshtml" />
+    <Content Include="Views\KhachHangs\Details.cshtml" />
+    <Content Include="Views\KhachHangs\Edit.cshtml" />
+    <Content Include="Views\KhachHangs\Index.cshtml" />
+    <Content Include="Views\GioHangs\Create.cshtml" />
+    <Content Include="Views\GioHangs\Delete.cshtml" />
+    <Content Include="Views\GioHangs\Details.cshtml" />
+    <Content Include="Views\GioHangs\Edit.cshtml" />
+    <Content Include="Views\GioHangs\Index.cshtml" />
+    <Content Include="Views\DonHangs\Create.cshtml" />
+    <Content Include="Views\DonHangs\Delete.cshtml" />
+    <Content Include="Views\DonHangs\Details.cshtml" />
+    <Content Include="Views\DonHangs\Edit.cshtml" />
+    <Content Include="Views\DonHangs\Index.cshtml" />
+    <Content Include="Views\ChiTietGioHangs\Create.cshtml" />
+    <Content Include="Views\ChiTietGioHangs\Delete.cshtml" />
+    <Content Include="Views\ChiTietGioHangs\Details.cshtml" />
+    <Content Include="Views\ChiTietGioHangs\Edit.cshtml" />
+    <Content Include="Views\ChiTietGioHangs\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -179,6 +254,11 @@
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.4.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202005310630130_addSanPhamAddress.resx">
+      <DependentUpon>202005310630130_addSanPhamAddress.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
@@ -213,7 +293,10 @@
       <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
     </PropertyGroup>
     <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.0\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.0\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.0\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.0\build\EntityFramework.targets'))" />
   </Target>
+  <Import Project="..\packages\EntityFramework.6.4.0\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.4.0\build\EntityFramework.targets')" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
